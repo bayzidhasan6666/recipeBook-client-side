@@ -46,57 +46,104 @@ const Register = () => {
   };
 
   return (
-    <div className='className="bg-gray-900 min-h-screen md:flex items-center justify-center px-4 sm:px-6 gap-5 lg:px-8"'>
-      <h1>Registration Page</h1>
-      <form onSubmit={handleRegister}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            value={name}
-            onChange={handleNameChange}
-          />
+    <div className="bg-gray-900 min-h-screen flex flex-col justify-center sm:py-12">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <h1 className="text-4xl font-bold text-center text-white">
+          Registration Page
+        </h1>
+        <div className="mt-4 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <form onSubmit={handleRegister} className="space-y-6">
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-500"
+              >
+                Name
+              </label>
+              <div className="mt-1">
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  required
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  value={name}
+                  onChange={handleNameChange}
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-500"
+              >
+                Email address
+              </label>
+              <div className="mt-1">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  value={email}
+                  onChange={handleEmailChange}
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-500"
+              >
+                Password
+              </label>
+              <div className="mt-1">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="new-password"
+                  required
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="photoUrl"
+                className="block text-sm font-medium text-gray-500"
+              >
+                Photo URL (optional)
+              </label>
+              <div className="mt-1">
+                <input
+                  id="photoUrl"
+                  name="photoUrl"
+                  type="text"
+                  autoComplete="photo-url"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  value={photoUrl}
+                  onChange={handlePhotoUrlChange}
+                />
+              </div>
+            </div>
+            <div>
+              <button
+                type="submit"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Register
+              </button>
+            </div>
+          </form>
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            autoComplete="new-password"
-            required
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="photoUrl">Photo URL:</label>
-          <input
-            id="photoUrl"
-            name="photoUrl"
-            type="text"
-            value={photoUrl}
-            onChange={handlePhotoUrlChange}
-          />
-        </div>
-        <button type="submit">Register</button>
-      </form>
+      </div>
     </div>
   );
 };
-
 export default Register;
