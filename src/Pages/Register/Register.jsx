@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
@@ -41,10 +41,14 @@ const Register = () => {
 
     // Add code here to handle the registration process with name/email/password/photoUrl
     // ...
-
     toast.success('Registration successful!');
-  };
 
+    // Reset form fields
+    setName('');
+    setEmail('');
+    setPassword('');
+    setPhotoUrl('');
+  };
   return (
     <div className="bg-gray-900 min-h-screen flex flex-col justify-center sm:py-12">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -143,6 +147,7 @@ const Register = () => {
           </form>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
