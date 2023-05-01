@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -169,7 +168,9 @@ const Login = () => {
           </button>
         </div>
         <Link to={`/register`}>
-          <p className="rounded text-sm italic text-emerald-500  mt-5">New To Website ? Please Register</p>
+          <p className="rounded text-sm italic text-emerald-500  mt-5">
+            New To Website ? Please Register
+          </p>
         </Link>
       </div>
     </div>
