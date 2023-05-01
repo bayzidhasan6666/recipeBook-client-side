@@ -1,45 +1,56 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ user, onLogout }) => {
   return (
-    <div className="navbar bg-base-100 shadow-xl">
-      <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">RecipeRiot</a>
+    <nav className="flex items-center justify-between flex-wrap bg-gray-800 shadow-xl p-6">
+      <div className="flex items-center flex-shrink-0 text-white mr-6">
+        <Link to="/" className="font-semibold text-xl tracking-tight">
+          Recipe Book
+        </Link>
       </div>
-      <div className="flex-none gap-2">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered"
-          />
-        </div>
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+      <div className="flex-grow block w-full md:flex md:items-center md:w-auto">
+        <div className="text-sm md:flex-grow">
+          <Link
+            to="/"
+            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 mr-4"
           >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
+            Home
+          </Link>
+          <Link
+            to="/blog"
+            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 mr-4"
+          >
+            Blog
+          </Link>
+        </div>
+        <div>
+          {user ? (
+            <div className="flex items-center">
+              <span className="text-white mr-2">{user.name}</span>
+              <img
+                className="inline-block h-8 w-8 rounded-full"
+                src={user.photoUrl}
+                alt={user.name}
+              />
+              <button
+                onClick={onLogout}
+                className="ml-4 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
