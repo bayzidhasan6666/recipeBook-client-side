@@ -1,9 +1,28 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import app from '../../firebase/firebase.config';
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  getAuth,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
+  const [user, setUser] = useState(null);
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const emailRef = useRef();
+
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -15,15 +34,79 @@ const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    // Add code here to handle the login process with email/password
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    setError('');
+    setSuccess('');
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        if (!loggedUser.emailVerified) {
+          ('');
+        }
+        toast.success('User logged in successful');
+
+        setError('');
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
-    // Add code here to handle Google Sign-in
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        setUser(loggedInUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleGithubSignIn = () => {
-    // Add code here to handle GitHub Sign-in
+    signInWithPopup(auth, githubProvider)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setUser(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // const handleSignOut = () => {
+  //   signOut(auth)
+  //     .then((result) => {
+  //       console.log(result);
+  //       setUser(null);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  const handleResetPassword = (event) => {
+    const email = emailRef.current.value;
+    if (!email) {
+      alert('Please provide your email address to reset password');
+      return;
+    }
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.warning('Please check your email');
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
   };
 
   return (
@@ -42,6 +125,8 @@ const Login = () => {
                 Email address
               </label>
               <input
+                onChange={handleEmailChange}
+                ref={emailRef}
                 id="email-address"
                 name="email"
                 type="email"
@@ -50,7 +135,6 @@ const Login = () => {
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm bg-gray-800"
                 placeholder="Email address"
                 value={email}
-                onChange={handleEmailChange}
               />
             </div>
             <div>
@@ -58,6 +142,7 @@ const Login = () => {
                 Password
               </label>
               <input
+                onChange={handlePasswordChange}
                 id="password"
                 name="password"
                 type="password"
@@ -66,7 +151,6 @@ const Login = () => {
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm bg-gray-800"
                 placeholder="Password"
                 value={password}
-                onChange={handlePasswordChange}
               />
             </div>
           </div>
@@ -89,6 +173,7 @@ const Login = () => {
 
             <div className="text-sm">
               <a
+                onClick={handleResetPassword}
                 href="#"
                 className="font-medium text-green-500 hover:text-green-700"
               >
@@ -175,6 +260,7 @@ const Login = () => {
             </p>
           </Link>
         </div>
+        <ToastContainer></ToastContainer>
       </div>
     </div>
   );
