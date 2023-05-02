@@ -49,8 +49,9 @@ const Login = () => {
         if (!loggedUser.emailVerified) {
           ('');
         }
+        setUser(loggedUser);
+        form.reset(); // Reset the form
         toast.success('User logged in successful');
-
         setError('');
       })
       .catch((error) => {
@@ -64,6 +65,7 @@ const Login = () => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
         setUser(loggedInUser);
+        toast.success('User logged in successful');
       })
       .catch((error) => {
         console.log(error);
@@ -76,6 +78,7 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setUser(loggedUser);
+        toast.success('User logged in successful');
       })
       .catch((error) => {
         console.log(error);
