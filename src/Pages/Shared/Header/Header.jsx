@@ -1,11 +1,23 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
-const Header = ({ user, onLogout }) => {
+const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   return (
     <nav className="flex items-center justify-between flex-wrap bg-gray-800 shadow-xl p-5 ">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <NavLink to="/" className="font-semibold text-xl tracking-tight">
+        <NavLink
+          to="/"
+          className="font-semibold text-xl tracking-tight text-red-400"
+        >
           Recipe Book
         </NavLink>
       </div>
@@ -29,12 +41,12 @@ const Header = ({ user, onLogout }) => {
             <div className="flex items-center">
               <span className="text-white mr-2">{user.name}</span>
               <img
-                className="inline-block h-8 w-8 rounded-full"
-                src={user.photoUrl}
-                alt={user.name}
+                className="inline-block h-8 w-8 rounded-full "
+                src={user.photoURL}
+                alt={user.displayName}
               />
               <button
-                onClick={onLogout}
+                onClick={handleLogOut}
                 className="ml-4 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
               >
                 Logout

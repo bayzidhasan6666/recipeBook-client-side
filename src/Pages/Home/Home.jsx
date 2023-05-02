@@ -26,7 +26,7 @@ const Home = () => {
   };
 
   return (
-    <div className="banner-container bg-gray-900 flex justify-around container ">
+    <div className="banner-container bg-gray-900 md:flex justify-around container ">
       <div className="banner-text px-4 py-8 md:w-1/2">
         <h1 className="text-4xl font-bold text-white mb-4">
           Welcome to Recipe Book
@@ -43,7 +43,7 @@ const Home = () => {
         <img
           src={images[activeIndex].url}
           alt={images[activeIndex].alt}
-          className="md:w-full lg:11/12 h-96 object-cover"
+          className="md:w-full lg:11/12 h-96 object-cover rounded-lg"
         />
         <div className="slider-controls absolute bottom-0 right-0 mb-4 mr-4">
           <button
