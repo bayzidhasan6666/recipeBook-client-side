@@ -1,13 +1,15 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const NavLink = () => {
+const NavLink = ({ to, children }) => {
   return (
     <NavLink
-      to="/"
-      exact // Add the exact prop
-      className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 mr-4"
+      to={to}
+      className={({ isActive }) =>
+        isActive ? 'border-b border-purple-500' : ''
+      }
     >
-      Home
+      {children}
     </NavLink>
   );
 };
