@@ -18,7 +18,7 @@ const Header = (props) => {
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <NavLink
             to="/"
-            className="font-semibold italic text-2xl btn tracking-tight text-red-400 font-serif capitalize "
+            className="font-semibold italic text-2xl btn tracking-tight text-red-400  font-serif capitalize "
           >
             Recipe Book
           </NavLink>

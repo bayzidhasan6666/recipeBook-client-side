@@ -38,7 +38,7 @@ const Home = (chef) => {
       {' '}
       <div className="banner-container bg-gray-900 md:flex justify-around container ">
         <div className="banner-text px-4 py-8 md:w-1/2">
-          <h1 className="text-4xl font-bold font-serif text-emerald-400 mb-4">
+          <h1 className="text-4xl italic font-bold font-serif text-emerald-400 mb-4">
             Welcome to Recipe Book
           </h1>
           <p className="text-lg text-gray-300 mb-8">
@@ -72,7 +72,7 @@ const Home = (chef) => {
           </div>
         </div>
       </div>
-      <h1 className="text-center text-emerald-400 text-4xl font-serif py-10">
+      <h1 className="text-center italic text-red-400 text-4xl font-serif py-20">
         Most Famous Chefs
       </h1>
       {chefs.map((chef) => (
@@ -89,7 +89,7 @@ const Home = (chef) => {
                   />
                 </div>
                 <div className="mt-8 lg:mt-0 lg:ml-8">
-                  <h1 className="text-3xl font-extrabold text-red-500 sm:text-4xl font-serif">
+                  <h1 className="text-3xl  text-emerald-500 sm:text-4xl font-serif">
                     {chef.chefName}
                   </h1>
                   <p className="mt-3 max-w-2xl text-lg text-gray-500">
@@ -97,27 +97,29 @@ const Home = (chef) => {
                   </p>
                   <div className="mt-6 flex flex-wrap">
                     <div className="flex items-center mr-6">
-                      <span className="text-2xl font-bold text-gray-600">
+                      <span className="text-xl font-semibold text-red-400 italic">
                         {chef.likes}
                       </span>
-                      <span className="ml-2 text-gray-500">Likes</span>
+                      <span className="ml-2 text-blue-500">Likes</span>
                     </div>
                     <div className="flex items-center mr-6">
-                      <span className="text-2xl font-bold text-gray-500">
+                      <span className="text-xl font-semibold text-red-400 italic">
                         {chef.yearsOfExperience}
                       </span>
-                      <span className="ml-2 text-gray-500">
+                      <span className="ml-2 text-cyan-400">
                         Years of Experience
                       </span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-2xl font-bold text-gray-500">
+                      <span className="text-xl font-semibold text-red-400 italic">
                         {chef.numberOfRecipes}
                       </span>
-                      <span className="ml-2 text-gray-400">
+                      <span className="ml-2 text-emerald-400">
                         Number of Recipes
                       </span>
-                      <button className="btn ml-5">View Recipe</button>
+                      <button className="border border-sky-500 px-3 py-1 text-cyan-400 hover:text-cyan-500 hover:border-cyan-500 ml-5">
+                        View Recipes
+                      </button>
                     </div>
                   </div>
                 </div>
