@@ -1,28 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = ({ user, onLogout }) => {
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-gray-800 shadow-xl p-6">
+    <nav className="flex items-center justify-between flex-wrap bg-gray-800 shadow-xl p-5 ">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <Link to="/" className="font-semibold text-xl tracking-tight">
+        <NavLink to="/" className="font-semibold text-xl tracking-tight">
           Recipe Book
-        </Link>
+        </NavLink>
       </div>
       <div className="flex-grow block w-full md:flex md:items-center md:w-auto">
         <div className="text-sm md:flex-grow">
-          <Link
+          <NavLink
             to="/"
             className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 mr-4"
           >
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/blog"
             className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 mr-4"
           >
             Blog
-          </Link>
+          </NavLink>
         </div>
         <div>
           {user ? (
@@ -41,12 +41,12 @@ const Header = ({ user, onLogout }) => {
               </button>
             </div>
           ) : (
-            <Link
+            <NavLink
               to="/login"
               className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0"
             >
               Login
-            </Link>
+            </NavLink>
           )}
         </div>
       </div>

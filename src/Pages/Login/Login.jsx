@@ -167,11 +167,14 @@ const Login = () => {
             <span>Sign in with GitHub</span>
           </button>
         </div>
-        <Link to={`/register`}>
-          <p className="rounded text-sm italic text-emerald-500  mt-5">
-            New To Website ? Please Register
-          </p>
-        </Link>
+        <div className="w-fit">
+          {' '}
+          <Link to={`/register`}>
+            <p className="rounded text-sm italic text-red-400 hover:text-red-50 underline ">
+              New To Website ? Please Register
+            </p>
+          </Link>
+        </div>
       </div>
     </div>
   );
