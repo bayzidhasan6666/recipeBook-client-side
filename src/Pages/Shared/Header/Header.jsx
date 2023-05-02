@@ -16,7 +16,7 @@ const Header = () => {
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <NavLink
           to="/"
-          className="font-semibold text-xl tracking-tight text-red-400"
+          className="font-semibold italic text-3xl tracking-tight text-red-400 font-serif"
         >
           Recipe Book
         </NavLink>
@@ -39,15 +39,23 @@ const Header = () => {
         <div>
           {user ? (
             <div className="flex items-center">
-              <span className="text-white mr-2">{user.name}</span>
               <img
-                className="inline-block h-8 w-8 rounded-full "
-                src={user.photoURL}
+                className="inline-block h-9 w-9 rounded-full cursor-pointer"
+                src={
+                  user.photoURL
+                    ? user.photoURL
+                    : 'https://e7.pngegg.com/pngimages/81/570/png-clipart-profile-logo-computer-icons-user-user-blue-heroes-thumbnail.png'
+                }
                 alt={user.displayName}
+                title={
+                  user.displayName
+                    ? user.displayName
+                    : 'User Name Not Available'
+                }
               />
               <button
                 onClick={handleLogOut}
-                className="ml-4 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                className="ml-4 hover:bg-red-400 text-red-400 font-semibold py-2 px-4 border border-red-400 rounded shadow hover:text-white"
               >
                 Logout
               </button>
@@ -55,7 +63,7 @@ const Header = () => {
           ) : (
             <NavLink
               to="/login"
-              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0"
+              className="inline-block text-sm px-4 py-2 leading-none border rounded text-green-500 border-white hover:border-transparent hover:text-white hover:bg-green-400 mt-4 md:mt-0"
             >
               Login
             </NavLink>

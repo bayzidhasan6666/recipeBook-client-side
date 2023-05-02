@@ -44,7 +44,7 @@ function Register() {
 
   return (
     <div className="max-w-md mx-auto rounded-xl py-10  p-5 text-gray-300">
-      <h1 className="text-3xl font-bold text-gray-400 mb-6">
+      <h1 className="text-3xl font-bold font-serif italic text-emerald-400 mb-6">
         Create an account
       </h1>
       <form onSubmit={handleSubmit}>
@@ -53,7 +53,7 @@ function Register() {
             Name:
           </label>
           <input
-            className="appearance-none border border-green-500 bg-transparent rounded-b-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none border border-emerald-400 bg-transparent rounded-b-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             id="name"
             type="text"
             required
@@ -64,7 +64,7 @@ function Register() {
             Email:
           </label>
           <input
-            className="appearance-none border border-green-500 bg-transparent rounded-t-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none border border-emerald-400 bg-transparent rounded-t-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
             type="email"
             required
@@ -78,7 +78,7 @@ function Register() {
             Password:
           </label>
           <input
-            className="appearance-none border rounded-b-lg border-green-500 bg-transparent  w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none border rounded-b-lg border-emerald-400 bg-transparent  w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             id="password"
             type="password"
             required
@@ -92,23 +92,23 @@ function Register() {
             Photo URL (optional)
           </label>
           <input
-            className="appearance-none border border-green-500 bg-transparent rounded-t-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none border border-emerald-400 bg-transparent rounded-t-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             id="photoURL"
             type="url"
           />
         </div>{' '}
         <div className="flex items-center justify-between">
           <button
-            className="bg-green-500 hover:bg-green-600 text-gray-300 py-2 px-4 font-bold rounded-t-lg focus:outline-none focus:shadow-outline"
+            className="bg-emerald-500 hover:bg-emerald-600 text-gray-200 py-2 px-4 font-bold rounded-t-lg focus:outline-none focus:shadow-outline italic"
             type="submit"
           >
             Register
           </button>
           <Link
             to="/login"
-            className="inline-block align-baseline italic  text-sm text-red-400 hover:text-red-500"
+            className="inline-block align-baseline italic  text-sm text-red-400 hover:text-red-500 underline"
           >
-            Already have an account?
+            Already have an account ?
           </Link>
         </div>
       </form>

@@ -2,12 +2,12 @@ import React from 'react';
 
 const Blog = () => {
   return (
-    <div className="py-5 bg-gradient-to-r from-purple-900 to-blue-900 min-h-screen flex flex-col items-center justify-center space-y-5">
-      <div className="bg-white rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
-        <h1 className="text-3xl font-bold mb-4 text-center text-gray-900">
+    <div className="py-5   min-h-screen flex flex-col items-center justify-center space-y-5">
+      <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
+        <h1 className="text-3xl font-bold mb-4 text-center text-gray-300 ">
           Differences between uncontrolled and controlled components?
         </h1>
-        <p className="text-lg leading-7 text-gray-900">
+        <p className="text-lg leading-7 text-gray-300 ">
           The main difference between uncontrolled and controlled components is
           that controlled components have their state managed by another
           component or the application itself, while uncontrolled components
@@ -18,17 +18,17 @@ const Blog = () => {
           interface.
         </p>
       </div>
-      <div className="bg-white rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
-        <h1 className="text-3xl font-bold mb-4 text-center text-gray-900">
+      <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
+        <h1 className="text-3xl font-bold mb-4 text-center text-gray-300 ">
           How to validate React props using PropTypes?
         </h1>
-        <p className="text-lg leading-7 text-gray-900">
+        <p className="text-lg leading-7 text-gray-300 ">
           PropTypes is a library in React that allows you to type check the
           props passed to a component. This is a useful way to catch errors in
           your code and provide more helpful error messages to other developers
           using your code.
         </p>
-        <p className="text-lg leading-7 text-gray-900">
+        <p className="text-lg leading-7 text-gray-300 ">
           PropTypes is a library in React that allows you to type check the
           props passed to a component. This is a useful way to catch errors in
           your code and provide more helpful error messages to other developers
@@ -41,11 +41,11 @@ const Blog = () => {
           the long run.
         </p>
       </div>
-      <div className="bg-white rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12 ">
-        <h1 className="text-3xl font-bold mb-4 text-center text-gray-900">
+      <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12 ">
+        <h1 className="text-3xl font-bold mb-4 text-center text-gray-300 ">
           The difference between nodejs and express js.?
         </h1>
-        <p className="text-lg leading-7 text-gray-900">
+        <p className="text-lg leading-7 text-gray-300 ">
           Node.js provides a runtime environment for running JavaScript code
           outside of the browser, while Express.js is a web application
           framework built on top of Node.js that provides a set of tools and
@@ -55,11 +55,11 @@ const Blog = () => {
           Node.js.
         </p>
       </div>
-      <div className="bg-white rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
-        <h1 className="text-3xl font-bold mb-4 text-center text-gray-900">
+      <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
+        <h1 className="text-3xl font-bold mb-4 text-center text-gray-300 ">
           What is a custom hook, and why will you create a custom hook?
         </h1>
-        <p className="text-lg leading-7 text-gray-900">
+        <p className="text-lg leading-7 text-gray-300 ">
           Custom hook is a function that starts with the prefix use and allows
           you to share logic between components. Custom hooks allow you to
           extract and reuse code that is shared across multiple components,
