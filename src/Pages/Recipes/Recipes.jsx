@@ -17,7 +17,7 @@ const Recipes = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="shadow-xl overflow-hidden rounded-lg">
           <img
-            className="h-96 lg:h-auto w-full object-cover"
+            className="h-96 lg:h-full w-full object-cover"
             src={recipes.chefPicture}
             alt={recipes.chefName}
           />

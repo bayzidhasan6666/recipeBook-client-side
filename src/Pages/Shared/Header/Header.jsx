@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 
-const Header = (props) => {
+const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   console.log(user);
 
@@ -14,11 +14,11 @@ const Header = (props) => {
   return (
     <div>
       {' '}
-      <nav className="flex items-center justify-between flex-wrap bg-gray-800 shadow-xl p-5 ">
+      <nav className="flex items-center justify-between flex-wrap bg-gray-800 shadow-xl p-3 ">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <NavLink
             to="/"
-            className="font-semibold italic text-2xl btn tracking-tight text-red-400  font-serif capitalize "
+            className="font-semibold italic text-xl btn tracking-tight text-red-400  font-serif capitalize "
           >
             Recipe Book
           </NavLink>
@@ -31,6 +31,7 @@ const Header = (props) => {
             >
               Home
             </NavLink>
+
             <NavLink
               to="/blog"
               className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 mr-4"
@@ -73,8 +74,6 @@ const Header = (props) => {
           </div>
         </div>
       </nav>
-
-      
     </div>
   );
 };
