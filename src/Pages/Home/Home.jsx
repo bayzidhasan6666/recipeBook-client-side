@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const images = [
   {
@@ -117,9 +118,12 @@ const Home = (chef) => {
                       <span className="ml-2 text-emerald-400">
                         Number of Recipes
                       </span>
-                      <button className="border border-sky-500 px-3 py-1 text-cyan-400 hover:text-cyan-500 hover:border-cyan-500 ml-5">
+                      <Link
+                        to={`/recipes/${chef.id}`}
+                        className="border border-sky-500 px-3 py-1 text-cyan-400 hover:text-cyan-500 hover:border-cyan-500 ml-5"
+                      >
                         View Recipes
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
