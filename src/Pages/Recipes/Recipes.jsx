@@ -62,7 +62,7 @@ const Recipes = () => {
 
               {favorites.includes(recipe) ? (
                 <button className="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded">
-                  Favorited
+                  Favorite
                 </button>
               ) : (
                 <button

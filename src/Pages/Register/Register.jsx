@@ -17,7 +17,7 @@ function Register() {
     const email = event.target.email.value;
     const password = event.target.password.value;
     const photoURL = event.target.photoURL.value;
-    console.log(name, email, password, photoURL);
+    // console.log(name, email, password, photoURL);
 
     // validation
     if (!email || !password) {
@@ -31,7 +31,7 @@ function Register() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
         setError('');
         event.target.reset();
         toast.success('User has been created successfully');

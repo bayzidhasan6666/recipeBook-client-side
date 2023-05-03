@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import app from '../../firebase/firebase.config';
 import {
   GithubAuthProvider,
@@ -19,6 +19,9 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const emailRef = useRef();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || '/home';
 
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
@@ -37,7 +40,7 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     setError('');
     setSuccess('');
@@ -45,7 +48,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
         if (!loggedUser.emailVerified) {
           ('');
         }
@@ -53,6 +56,7 @@ const Login = () => {
         form.reset(); // Reset the form
         toast.success('User logged in successful');
         setError('');
+        navigate(from);
       })
       .catch((error) => {
         toast.error(error.message);
@@ -63,9 +67,10 @@ const Login = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const loggedInUser = result.user;
-        console.log(loggedInUser);
+        // console.log(loggedInUser);
         setUser(loggedInUser);
         toast.success('User logged in successful');
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);
@@ -76,25 +81,15 @@ const Login = () => {
     signInWithPopup(auth, githubProvider)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
         setUser(loggedUser);
         toast.success('User logged in successful');
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
-  // const handleSignOut = () => {
-  //   signOut(auth)
-  //     .then((result) => {
-  //       console.log(result);
-  //       setUser(null);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
 
   const handleResetPassword = (event) => {
     const email = emailRef.current.value;
