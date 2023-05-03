@@ -1,10 +1,17 @@
 import React from 'react';
+import { useNavigation } from 'react-router-dom';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const Blog = () => {
+  const navigation = useNavigation();
+  if (navigation.state === 'loading') {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
+
   return (
     <div className="py-5   min-h-screen flex flex-col items-center justify-center space-y-5">
       <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
-        <h1 className="text-3xl font-bold mb-4 text-center text-gray-300 ">
+        <h1 className="text-3xl font-serif font-bold mb-4 text-center text-red-400 ">
           Differences between uncontrolled and controlled components?
         </h1>
         <p className="text-lg leading-7 text-gray-300 ">
@@ -19,7 +26,7 @@ const Blog = () => {
         </p>
       </div>
       <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
-        <h1 className="text-3xl font-bold mb-4 text-center text-gray-300 ">
+        <h1 className="text-3xl font-serif font-bold mb-4 text-center text-red-400 ">
           How to validate React props using PropTypes?
         </h1>
         <p className="text-lg leading-7 text-gray-300 ">
@@ -42,7 +49,7 @@ const Blog = () => {
         </p>
       </div>
       <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12 ">
-        <h1 className="text-3xl font-bold mb-4 text-center text-gray-300 ">
+        <h1 className="text-3xl font-serif font-bold mb-4 text-center text-red-400">
           The difference between nodejs and express js.?
         </h1>
         <p className="text-lg leading-7 text-gray-300 ">
@@ -56,7 +63,7 @@ const Blog = () => {
         </p>
       </div>
       <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
-        <h1 className="text-3xl font-bold mb-4 text-center text-gray-300 ">
+        <h1 className="text-3xl font-serif font-bold mb-4 text-center text-red-400 ">
           What is a custom hook, and why will you create a custom hook?
         </h1>
         <p className="text-lg leading-7 text-gray-300 ">

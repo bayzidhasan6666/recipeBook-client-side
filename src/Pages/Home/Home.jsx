@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const images = [
   {
@@ -16,6 +17,10 @@ const images = [
   },
 ];
 const Home = (chef) => {
+  const navigation = useNavigation();
+  if (navigation.state === 'loading') {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
   const [chefs, setChefs] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
 

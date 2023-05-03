@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import ActiveLink from '../../ActiveLink/ActiveLink';
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -15,28 +16,28 @@ const Header = () => {
       {' '}
       <nav className="flex items-center justify-between flex-wrap bg-gray-800 shadow-xl p-3 ">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <NavLink
+          <Link
             to="/"
             className="font-semibold italic text-xl btn tracking-tight text-red-400  font-serif capitalize "
           >
             Recipe Book
-          </NavLink>
+          </Link>
         </div>
         <div className="flex-grow block w-full md:flex md:items-center md:w-auto">
-          <div className="text-sm md:flex-grow">
-            <NavLink
+          <div className="text-sm space-x-4 md:flex-grow">
+            <ActiveLink
               to="/"
               className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 mr-4"
             >
               Home
-            </NavLink>
+            </ActiveLink>
 
-            <NavLink
+            <ActiveLink
               to="/blog"
-              className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 mr-4"
+              className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 ml-4"
             >
               Blog
-            </NavLink>
+            </ActiveLink>
           </div>
           <div>
             {user ? (

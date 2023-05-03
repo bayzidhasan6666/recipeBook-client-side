@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavLink = ({ to, children }) => {
+const ActiveLink = ({ to, children }) => {
   return (
     <NavLink
       to={to}
       className={({ isActive }) =>
-        isActive ? 'border-b border-purple-500' : ''
+        isActive ? ' text-teal-400 font-serif' : 'text-white font-serif'
       }
     >
       {children}
@@ -14,4 +14,4 @@ const NavLink = ({ to, children }) => {
   );
 };
 
-export default NavLink;
+export default ActiveLink;

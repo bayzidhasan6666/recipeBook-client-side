@@ -6,11 +6,14 @@ import Blog from '../Pages/Blog/Blog';
 import Register from '../Pages/Register/Register';
 import Recipes from '../Pages/Recipes/Recipes';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import LoadingSpinner from '../Pages/LoadingSpinner/LoadingSpinner';
+import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -45,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>,
+      },
+      {
+        path: 'loader',
+        element: <LoadingSpinner></LoadingSpinner>,
       },
     ],
   },
