@@ -22,6 +22,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || '/home';
+  const [show, setShow] = useState(false);
 
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
@@ -143,7 +144,7 @@ const Login = () => {
                 onChange={handlePasswordChange}
                 id="password"
                 name="password"
-                type="password"
+                type={show ? 'text' : 'password'}
                 autoComplete="current-password"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-300 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm bg-gray-800"
@@ -156,6 +157,7 @@ const Login = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <input
+                onClick={() => setShow(!show)}
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"

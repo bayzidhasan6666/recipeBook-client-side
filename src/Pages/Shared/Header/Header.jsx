@@ -18,13 +18,13 @@ const Header = () => {
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link
             to="/"
-            className="font-semibold italic text-xl btn tracking-tight text-red-400  font-serif capitalize "
+            className="font-semibold italic text-xl btn tracking-tight text-red-400 md:ml-0 ml-28 my-3 font-serif capitalize "
           >
             Recipe Book
           </Link>
         </div>
-        <div className="flex-grow block w-full md:flex md:items-center md:w-auto">
-          <div className="text-sm space-x-4 md:flex-grow">
+        <div className="flex-grow justify-between w-full flex items-center md:w-auto">
+          <div className="text-sm  space-x-4 md:flex-grow">
             <ActiveLink
               to="/"
               className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 mr-4"
@@ -38,7 +38,14 @@ const Header = () => {
             >
               Blog
             </ActiveLink>
+            <ActiveLink
+              to="/about"
+              className="block mt-4 md:inline-block md:mt-0 text-white hover:text-gray-200 ml-4"
+            >
+              About Us
+            </ActiveLink>
           </div>
+
           <div>
             {user ? (
               <div className="flex items-center">

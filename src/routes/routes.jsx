@@ -9,6 +9,8 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import LoadingSpinner from '../Pages/LoadingSpinner/LoadingSpinner';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 import MenuItems from '../Pages/OurMenu/MenuItems';
+import Leaflet from '../Pages/Leaflet/Leaflet';
+import AboutUs from '../Pages/AboutUs/AboutUs';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +34,9 @@ const router = createBrowserRouter([
         path: '/recipes',
         element: <Recipes></Recipes>,
         loader: () =>
-          fetch('http://localhost:5000/chefs').then((res) => res.json()),
+          fetch(
+            'https://b7a10-chef-recipe-hunter-server-side-bayzidhasan6666.vercel.app/chefs'
+          ).then((res) => res.json()),
       },
       {
         path: '/recipes/:id',
@@ -42,9 +46,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/chefs/${params.id}`).then((res) =>
-            res.json()
-          ),
+          fetch(
+            `https://b7a10-chef-recipe-hunter-server-side-bayzidhasan6666.vercel.app/chefs/${params.id}`
+          ).then((res) => res.json()),
       },
       {
         path: '/blog',
@@ -59,6 +63,14 @@ const router = createBrowserRouter([
         element: <MenuItems></MenuItems>,
         loader: () =>
           fetch('https://www.themealdb.com/api/json/v1/1/categories.php'),
+      },
+      {
+        path: '/leaflet',
+        element: <Leaflet></Leaflet>,
+      },
+      {
+        path: '/about',
+        element: <AboutUs></AboutUs>,
       },
     ],
   },

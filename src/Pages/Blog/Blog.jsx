@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import { useNavigation } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const Blog = () => {
@@ -21,13 +21,13 @@ const Blog = () => {
       </h1>
       <div ref={componentRef}>
         <div className="py-5   min-h-screen flex flex-col items-center justify-center space-y-5">
-        <button
-          className="ml-4 border border-teal-400  text-teal-100 px-4 py-2 rounded hover:bg-teal-500"
-          onClick={handlePrint}
-        >
-          <i className="fas fa-file-pdf mr-2"></i>
-          Download PDF
-        </button>
+          <button
+            className="ml-4 border border-teal-400  text-teal-100 px-4 py-2 rounded hover:bg-teal-500"
+            onClick={handlePrint}
+          >
+            <i className="fas fa-file-pdf mr-2"></i>
+            Download PDF
+          </button>
           <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
             <h1 className="text-3xl font-serif font-bold mb-4 text-center text-red-400 ">
               Differences between uncontrolled and controlled components?
@@ -102,6 +102,12 @@ const Blog = () => {
           </div>
         </div>
       </div>
+      <Link
+        to="/"
+        className="border flex mx-auto w-fit border-cyan-400 px-3 py-1 font-semibold hover:border-red-500 hover:text-orange-400 text-emerald-400"
+      >
+        Back to homepage
+      </Link>
     </div>
   );
 };

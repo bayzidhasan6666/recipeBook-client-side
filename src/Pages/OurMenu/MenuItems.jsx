@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const MenuItems = () => {
   const items = useLoaderData();
@@ -8,7 +8,7 @@ const MenuItems = () => {
     <div>
       <div>
         <h1 className=" text-3xl  text-center py-5 font-serif text-red-500 font-bold italic">
-          OUR MENU
+          Our Chef Recommended
         </h1>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3">
@@ -39,6 +39,12 @@ const MenuItems = () => {
           </div>
         ))}
       </div>
+      <Link
+        to="/"
+        className="border flex mx-auto w-fit border-cyan-400 px-3 py-1 font-semibold hover:border-red-500 hover:text-orange-400 text-emerald-400"
+      >
+        Back to homepage
+      </Link>
     </div>
   );
 };

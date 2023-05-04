@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -78,6 +78,12 @@ const Recipes = () => {
         </div>
         <ToastContainer></ToastContainer>
       </div>
+        <Link
+          to="/"
+          className="border flex mx-auto w-fit border-cyan-400 px-3 py-1 font-semibold hover:border-red-500 hover:text-orange-400 text-emerald-400"
+        >
+          Back to homepage
+        </Link>
     </div>
   );
 };

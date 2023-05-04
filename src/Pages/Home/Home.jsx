@@ -29,7 +29,9 @@ const Home = (chef) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    fetch('http://localhost:5000/chefs')
+    fetch(
+      'https://b7a10-chef-recipe-hunter-server-side-bayzidhasan6666.vercel.app/chefs'
+    )
       .then((res) => res.json())
       .then((data) => setChefs(data))
       .catch((error) => console.log(error));
