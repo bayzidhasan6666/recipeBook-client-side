@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigation } from 'react-router-dom';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import OurMenu from '../OurMenu/OurMenu';
+import Reservation from '../Reservation/Reservation';
+import News from '../News/News';
+import PopularRecipes from '../PopularRecipes/PopularRecipes';
 
 const images = [
   {
@@ -48,9 +52,9 @@ const Home = (chef) => {
             Welcome to Recipe Book
           </h1>
           <p className="text-lg text-gray-300 mb-8">
-            With Grand Restaurant theme you can build a website for cafe,
-            bistro, restaurant and other online delivery related business site
-            with ready-made designed page templates and intuitive page builder
+            When the going gets tough, the tough get grilling. Bringing heat to
+            your meat.The Wilma is a premium taste that yearns to be savored,
+            ground beef between your teeth
           </p>
           <button className="bg-red-400 text-gray-900 font-bold py-2 px-4 rounded-full hover:bg-red-500">
             Learn More
@@ -137,6 +141,22 @@ const Home = (chef) => {
           </section>
         </div>
       ))}
+      {/* Our Menu section  */}
+      <div>
+        {' '}
+        <section>
+          <OurMenu></OurMenu>
+        </section>
+        <section>
+          <PopularRecipes></PopularRecipes>
+        </section>
+        <section>
+          <Reservation></Reservation>
+        </section>
+        <section>
+          <News></News>
+        </section>
+      </div>
     </>
   );
 };

@@ -8,6 +8,7 @@ import Recipes from '../Pages/Recipes/Recipes';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import LoadingSpinner from '../Pages/LoadingSpinner/LoadingSpinner';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
+import MenuItems from '../Pages/OurMenu/MenuItems';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,12 @@ const router = createBrowserRouter([
       {
         path: 'loader',
         element: <LoadingSpinner></LoadingSpinner>,
+      },
+      {
+        path: '/menu',
+        element: <MenuItems></MenuItems>,
+        loader: () =>
+          fetch('https://www.themealdb.com/api/json/v1/1/categories.php'),
       },
     ],
   },
