@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense, useRef } from 'react';
 import { Link, useNavigation } from 'react-router-dom';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import OurMenu from '../OurMenu/OurMenu';
 import Reservation from '../Reservation/Reservation';
 import News from '../News/News';
 import PopularRecipes from '../PopularRecipes/PopularRecipes';
+import './Home.css';
 
 const images = [
   {
@@ -20,7 +21,7 @@ const images = [
     alt: 'Banner Image 3',
   },
 ];
-const Home = (chef) => {
+const Home = () => {
   const navigation = useNavigation();
   if (navigation.state === 'loading') {
     return <LoadingSpinner></LoadingSpinner>;
@@ -49,19 +50,21 @@ const Home = (chef) => {
     <>
       {' '}
       <div className="banner-container bg-gray-900 md:flex justify-around container ">
-        <div className="banner-text px-4 py-8 md:w-1/2">
-          <h1 className="text-4xl italic font-bold font-serif text-emerald-400 mb-4">
-            Welcome to Recipe Book
+        <div className="banner-text  px-4 py-8 md:w-1/2">
+          <h1 className="text-4xl animate-pulse  italic font-bold font-serif text-emerald-400 mb-4 animate__animated animate__fadeInDown">
+            <span className="text-5xl text-red-400">W</span>
+            <span className="text-red-400">elcome to </span>Recipe Book
           </h1>
-          <p className="text-lg text-gray-300 mb-8">
+          <p className="text-lg animate-pulse text-gray-300 mb-8 animate__animated animate__fadeInUp">
             When the going gets tough, the tough get grilling. Bringing heat to
-            your meat.The Wilma is a premium taste that yearns to be savored,
+            your meat. The Wilma is a premium taste that yearns to be savored,
             ground beef between your teeth
           </p>
-          <button className="bg-red-400 text-gray-900 font-bold py-2 px-4 rounded-full hover:bg-red-500">
+          <button className="bg-red-400 animate-pulse text-gray-900 font-bold py-2 px-4 rounded-full hover:bg-red-500 animate__animated animate__pulse">
             Learn More
           </button>
         </div>
+
         <div className="banner-slider relative md:w-1/2">
           <img
             src={images[activeIndex].url}
