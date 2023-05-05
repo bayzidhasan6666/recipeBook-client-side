@@ -91,6 +91,21 @@ const Home = () => {
             alt={images[activeIndex].alt}
             className="md:w-full lg:11/12 h-96 object-cover rounded-lg"
           />
+          <p className="absolute text-white font-serif bottom-36 right-0 text-center">
+            {' '}
+            <Typewriter
+              options={{
+                delay: 50,
+                strings: [
+                  `Our Chefs offer you perfect cooking, best served dishes with fresh ingredients and old recipes. We have only carefully sourced and seasonal ingredients in our disposal to make rustic dishes. We provide you with daily self-made bread, sourdough pizza, roasted fish-meat-vegetables and many more.`,
+                ],
+                autoStart: true,
+                loop: true,
+                pauseFor: 2000,
+              }}
+            />
+          </p>
+
           <div className="slider-controls absolute bottom-0 right-0 mb-4 mr-4">
             <button
               className="bg-white text-gray-800 font-bold py-2 px-4 rounded-full hover:bg-gray-300"
