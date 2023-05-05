@@ -5,11 +5,16 @@ const UserProfile = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
   return (
-    <div className="flex justify-center my-32">
+    <div className="flex justify-center my-32 " data-aos="fade-up">
       {user && (
         <div className="card w-96 border border-cyan-400 shadow-xl">
           <figure>
-            <img className="" src={user.photoURL} alt="User" />
+            <img
+              data-aos="fade-left"
+              className=""
+              src={user.photoURL}
+              alt="User"
+            />
           </figure>
           <div className="card-body">
             <h2 className="card-title">

@@ -1,10 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { Link, useNavigation } from 'react-router-dom';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import useTitle from '../../DynamicTitle/useTitle';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Blog = () => {
+   useEffect(() => {
+     AOS.init();
+   }, []);
+
   useTitle('Blog');
   const navigation = useNavigation();
   if (navigation.state === 'loading') {
@@ -17,20 +23,30 @@ const Blog = () => {
   });
 
   return (
-    <div>
-      <h1 className="text-3xl text-center font-serif text-red-400 font-bold mb-4">
+    <div data-aos="fade-up">
+      <h1
+        data-aos="fade-left"
+        className="text-3xl text-center font-serif text-red-400 font-bold mb-4"
+      >
         Blog Page
       </h1>
       <div ref={componentRef}>
-        <div className="py-5   min-h-screen flex flex-col items-center justify-center space-y-5">
+        <div
+          data-aos="fade-left"
+          className="py-5   min-h-screen flex flex-col items-center justify-center space-y-5"
+        >
           <button
+            data-aos="fade-up"
             className="ml-4 border border-teal-400  text-teal-100 px-4 py-2 rounded hover:bg-teal-500"
             onClick={handlePrint}
           >
             <i className="fas fa-file-pdf mr-2"></i>
             Download PDF
           </button>
-          <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
+          <div
+            data-aos="fade-left"
+            className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12"
+          >
             <h1 className="text-3xl font-serif font-bold mb-4 text-center text-red-400 ">
               Differences between uncontrolled and controlled components?
             </h1>
@@ -45,7 +61,10 @@ const Blog = () => {
               control over the user interface.
             </p>
           </div>
-          <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
+          <div
+            data-aos="fade-left"
+            className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12"
+          >
             <h1 className="text-3xl font-serif font-bold mb-4 text-center text-red-400 ">
               How to validate React props using PropTypes?
             </h1>
@@ -68,7 +87,10 @@ const Blog = () => {
               to maintain in the long run.
             </p>
           </div>
-          <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12 ">
+          <div
+            data-aos="fade-left"
+            className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12 "
+          >
             <h1 className="text-3xl font-serif font-bold mb-4 text-center text-red-400">
               The difference between nodejs and express js.?
             </h1>
@@ -82,7 +104,10 @@ const Blog = () => {
               applications with Node.js.
             </p>
           </div>
-          <div className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12">
+          <div
+            data-aos="fade-left"
+            className="bg-gray-800 rounded-md shadow-lg p-8 w-full md:w-10/12 lg:w-6/12"
+          >
             <h1 className="text-3xl font-serif font-bold mb-4 text-center text-red-400 ">
               What is a custom hook, and why will you create a custom hook?
             </h1>
@@ -105,6 +130,7 @@ const Blog = () => {
         </div>
       </div>
       <Link
+        data-aos="fade-up"
         to="/"
         className="border flex mx-auto w-fit border-cyan-400 px-3 py-1 font-semibold hover:border-red-500 hover:text-orange-400 text-emerald-400"
       >

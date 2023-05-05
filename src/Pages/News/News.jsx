@@ -32,8 +32,10 @@ function News() {
   ];
 
   return (
-    <div className="container mx-auto">
-      <h2 className="text-3xl text-center font-serif italic pt-10 font-bold text-emerald-400 mb-8">Our News</h2>
+    <div data-aos="fade-up" className="container mx-auto">
+      <h2 className="text-3xl text-center font-serif italic pt-10 font-bold text-emerald-400 mb-8">
+        Our News
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {newsData.map((newsItem) => (
           <NewsCard key={newsItem.id} {...newsItem} />

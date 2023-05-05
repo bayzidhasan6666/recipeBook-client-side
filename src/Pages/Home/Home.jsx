@@ -7,6 +7,9 @@ import News from '../News/News';
 import PopularRecipes from '../PopularRecipes/PopularRecipes';
 import './Home.css';
 import useTitle from '../../DynamicTitle/useTitle';
+import Typewriter from 'typewriter-effect';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const images = [
   {
@@ -23,6 +26,10 @@ const images = [
   },
 ];
 const Home = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const navigation = useNavigation();
   if (navigation.state === 'loading') {
     return <LoadingSpinner></LoadingSpinner>;
@@ -53,10 +60,19 @@ const Home = () => {
     <>
       {' '}
       <div className="banner-container bg-gray-900 md:flex justify-around container ">
-        <div className="banner-text  px-4 py-8 md:w-1/2">
-          <h1 className="text-4xl animate-pulse  italic font-bold font-serif text-emerald-400 mb-4 animate__animated animate__fadeInDown">
-            <span className="text-5xl text-red-400">W</span>
-            <span className="text-red-400">elcome to </span>Recipe Book
+        <div data-aos="fade-left" className="banner-text  px-4 py-8 md:w-1/2 ">
+          <h1 className="text-4xl italic font-bold font-serif text-emerald-400 mb-4">
+            <Typewriter
+              options={{
+                delay: 90,
+                strings: [
+                  `Welcome to <span class="text-red-400">Recipe Book</span>`,
+                ],
+                autoStart: true,
+                loop: true,
+                pauseFor: 2000,
+              }}
+            />
           </h1>
           <p className="text-lg animate-pulse text-gray-300 mb-8 animate__animated animate__fadeInUp">
             When the going gets tough, the tough get grilling. Bringing heat to
@@ -70,6 +86,7 @@ const Home = () => {
 
         <div className="banner-slider relative md:w-1/2">
           <img
+            data-aos="fade-up"
             src={images[activeIndex].url}
             alt={images[activeIndex].alt}
             className="md:w-full lg:11/12 h-96 object-cover rounded-lg"
@@ -90,8 +107,16 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <h1 className="text-center italic text-red-400 text-4xl font-serif py-20">
-        Most Famous Chefs
+      <h1 className="text-4xl italic text-center font-bold font-serif bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent py-20">
+        <Typewriter
+          options={{
+            delay: 50,
+            strings: [' Most Famous Chefs'],
+            autoStart: true,
+            loop: true,
+            pauseFor: 2000,
+          }}
+        />
       </h1>
       {chefs.map((chef) => (
         <div key={chef.id}>
@@ -101,12 +126,13 @@ const Home = () => {
               <div className="lg:flex lg:items-center lg:justify-between">
                 <div className="flex-1 min-w-0">
                   <img
+                    data-aos="fade-up"
                     className="h-44 w-44 rounded-full object-cover "
                     src={chef.chefPicture}
                     alt="Chef Picture"
                   />
                 </div>
-                <div className="mt-8 lg:mt-0 lg:ml-8">
+                <div data-aos="fade-up" className="mt-8 lg:mt-0 lg:ml-8">
                   <h1 className="text-3xl  text-emerald-500 sm:text-4xl font-serif">
                     {chef.chefName}
                   </h1>

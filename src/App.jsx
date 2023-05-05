@@ -3,6 +3,8 @@ import Header from './Pages/Shared/Header/Header';
 import { Outlet, useNavigation } from 'react-router-dom';
 import Footer from './Pages/Shared/Footer/Footer';
 import LoadingSpinner from './Pages/LoadingSpinner/LoadingSpinner';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const App = () => {
   const navigation = useNavigation();

@@ -2,16 +2,15 @@ import React from 'react';
 
 function RecipeCard({ recipe }) {
   return (
-    <div className=" rounded-lg overflow-hidden shadow-xl">
+    <div data-aos="fade-up" className=" rounded-lg overflow-hidden shadow-xl">
       <img
+        data-aos="fade-left"
         src={recipe.imageUrl}
         alt={recipe.title}
         className="w-full h-64 object-cover"
       />
       <div className="p-4">
-        <h3 className="text-red-500 font-medium text-lg mb-2">
-          {recipe.name}
-        </h3>
+        <h3 className="text-red-500 font-medium text-lg mb-2">{recipe.name}</h3>
         <div className="flex items-center mb-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"

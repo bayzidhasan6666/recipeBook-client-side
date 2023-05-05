@@ -1,29 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../DynamicTitle/useTitle';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const MenuItems = () => {
   useTitle('Menu Items');
   const items = useLoaderData();
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div>
       <div>
-        <h1 className=" text-3xl  text-center py-5 font-serif text-red-500 font-bold italic">
+        <h1
+          data-aos="fade-down"
+          className=" text-3xl  text-center py-5 font-serif text-red-500 font-bold italic"
+        >
           Our Chef Recommended
         </h1>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3">
         {items.categories.map((item) => (
           <div
+            data-aos="fade-right"
             key={item.idCategory}
             className="max-w-sm rounded overflow-hidden shadow-xl mx-4 mb-8"
           >
             <img
+              data-aos="fade-left"
               className="w-full"
               src={item.strCategoryThumb}
               alt={item.strCategory}
             />
-            <div className="px-6 py-4">
+
+            <div data-aos="fade-up" className="px-6 py-4">
               <div className="font-bold text-xl mb-2">{item.strCategory}</div>
               <p className="text-sky-600 text-base">
                 {item.strCategoryDescription.slice(0, 100)}

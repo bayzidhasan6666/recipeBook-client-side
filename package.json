@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "clsx": "^1.2.1",
     "cors": "^2.8.5",
     "daisyui": "^2.51.6",
@@ -23,7 +24,8 @@
     "react-router-dom": "^6.11.0",
     "react-to-print": "^2.14.12",
     "react-toastify": "^9.1.2",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

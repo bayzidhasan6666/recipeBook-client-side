@@ -43,9 +43,11 @@ function PopularRecipes() {
   ];
 
   return (
-    <section className="py-8">
+    <section data-aos="fade-up" className="py-8">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center font-serif  mb-8 text-red-400">Popular Recipes</h2>
+        <h2 className="text-3xl font-bold text-center font-serif  mb-8 text-red-400">
+          Popular Recipes
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {popularRecipes.map((recipe) => (
             <RecipeCard key={recipe.id} recipe={recipe} />
