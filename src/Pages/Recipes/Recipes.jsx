@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../DynamicTitle/useTitle';
 
 const Recipes = () => {
+  useTitle('Chef Details & Recipes');
   const recipes = useLoaderData();
   const [favorites, setFavorites] = useState([]);
 
@@ -78,12 +80,12 @@ const Recipes = () => {
         </div>
         <ToastContainer></ToastContainer>
       </div>
-        <Link
-          to="/"
-          className="border flex mx-auto w-fit border-cyan-400 px-3 py-1 font-semibold hover:border-red-500 hover:text-orange-400 text-emerald-400"
-        >
-          Back to homepage
-        </Link>
+      <Link
+        to="/"
+        className="border flex mx-auto w-fit border-cyan-400 px-3 py-1 font-semibold hover:border-red-500 hover:text-orange-400 text-emerald-400"
+      >
+        Back to homepage
+      </Link>
     </div>
   );
 };

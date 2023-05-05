@@ -2,8 +2,10 @@ import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { Link, useNavigation } from 'react-router-dom';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import useTitle from '../../DynamicTitle/useTitle';
 
 const Blog = () => {
+  useTitle('Blog');
   const navigation = useNavigation();
   if (navigation.state === 'loading') {
     return <LoadingSpinner></LoadingSpinner>;

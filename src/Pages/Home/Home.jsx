@@ -6,6 +6,7 @@ import Reservation from '../Reservation/Reservation';
 import News from '../News/News';
 import PopularRecipes from '../PopularRecipes/PopularRecipes';
 import './Home.css';
+import useTitle from '../../DynamicTitle/useTitle';
 
 const images = [
   {
@@ -28,6 +29,8 @@ const Home = () => {
   }
   const [chefs, setChefs] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useTitle('Home');
 
   useEffect(() => {
     fetch(

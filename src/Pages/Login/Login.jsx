@@ -11,8 +11,10 @@ import {
   signOut,
 } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
+import useTitle from '../../DynamicTitle/useTitle';
 
 const Login = () => {
+  useTitle('Login');
   const [user, setUser] = useState(null);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');

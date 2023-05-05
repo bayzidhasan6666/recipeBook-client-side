@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../DynamicTitle/useTitle';
 
 const MenuItems = () => {
+  useTitle('Menu Items');
   const items = useLoaderData();
-  console.log(items.categories);
   return (
     <div>
       <div>

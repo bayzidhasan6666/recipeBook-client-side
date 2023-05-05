@@ -2,8 +2,10 @@ import React from 'react';
 import 'leaflet/dist/leaflet.css';
 import Leaflet from '../Leaflet/Leaflet';
 import { Link } from 'react-router-dom';
+import useTitle from '../../DynamicTitle/useTitle';
 
 const AboutUs = () => {
+  useTitle('About Us');
   return (
     <div className="bg-gray-900 text-white ">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">

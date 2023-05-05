@@ -11,7 +11,5 @@
 
 /* Change the marker icon to a custom icon for the restaurant */
 .leaflet-marker-icon {
-  background-image: url('https://www.svgrepo.com/show/54155/restaurant.svg');
   background-size: cover;
-  filter: brightness(0) invert(1);
 }

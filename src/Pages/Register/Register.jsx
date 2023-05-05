@@ -4,11 +4,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
+import useTitle from '../../DynamicTitle/useTitle';
 
 const auth = getAuth(app);
 
 function Register() {
+  useTitle('Register');
   const [error, setError] = useState('');
+  const [show, setShow] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -78,11 +81,26 @@ function Register() {
             Password:
           </label>
           <input
-            className="appearance-none border rounded-b-lg border-emerald-400 bg-transparent  w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none border rounded-b-lg border-emerald-400 bg-transparent  w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline mb-2"
             id="password"
-            type="password"
+            type={show ? 'text' : 'password'}
             required
           />
+          <div className="flex items-center">
+            <input
+              onClick={() => setShow(!show)}
+              id="remember-me"
+              name="remember-me"
+              type="checkbox"
+              className="h-4 w-4 text-green-500 focus:ring-green-400 border-gray-300 rounded"
+            />
+            <label
+              htmlFor="remember-me"
+              className="ml-2 block text-sm text-gray-500"
+            >
+              Remember me
+            </label>
+          </div>
         </div>
         <div className="mb-4">
           <label

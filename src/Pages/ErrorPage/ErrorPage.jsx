@@ -2,8 +2,10 @@ import React from 'react';
 import { Link, useRouteError } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import errorAnime from '/src/assets/45730-recipes-book-animation';
+import useTitle from '../../DynamicTitle/useTitle';
 const ErrorPage = () => {
   const { error, status, statusText } = useRouteError();
+  useTitle('Error Page');
 
   return (
     <div>
@@ -17,7 +19,10 @@ const ErrorPage = () => {
             <p className="text-2xl italic font-semibold md:text-3xl text-red-500 mb-5">
               {error?.message}
             </p>
-            <Link to="/" className="border border-cyan-400 px-3 py-1 font-semibold hover:border-red-500 hover:text-orange-400 text-emerald-400">
+            <Link
+              to="/"
+              className="border border-cyan-400 px-3 py-1 font-semibold hover:border-red-500 hover:text-orange-400 text-emerald-400"
+            >
               Back to homepage
             </Link>
           </div>

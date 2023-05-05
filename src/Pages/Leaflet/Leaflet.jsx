@@ -3,8 +3,10 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './Leaflet.css';
+import useTitle from '../../DynamicTitle/useTitle';
 
 const Leaflet = () => {
+  useTitle('Leaflet');
   const restaurantTileLayer = L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {
@@ -16,12 +18,12 @@ const Leaflet = () => {
   return (
     <div className="w-full h-96">
       <MapContainer
-        center={[40.7128, -74.006]}
+        center={[24.163813557835933, 90.58820257179471]}
         zoom={15}
         className="w-full h-full"
       >
         <TileLayer url={restaurantTileLayer._url} />
-        <Marker position={[40.7128, -74.006]}>
+        <Marker position={[24.163813557835933, 90.58820257179471]}>
           <Popup>
             Welcome to our restaurant! <br /> We are located here.
           </Popup>
