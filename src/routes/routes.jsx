@@ -11,6 +11,7 @@ import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 import MenuItems from '../Pages/OurMenu/MenuItems';
 import Leaflet from '../Pages/Leaflet/Leaflet';
 import AboutUs from '../Pages/AboutUs/AboutUs';
+import UserProfile from '../Pages/UserProfile/UserProfile';
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,14 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <AboutUs></AboutUs>,
+      },
+      {
+        path: '/profile',
+        element: (
+          <PrivateRoute>
+            <UserProfile></UserProfile>
+          </PrivateRoute>
+        ),
       },
     ],
   },

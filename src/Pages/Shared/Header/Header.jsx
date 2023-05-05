@@ -49,20 +49,23 @@ const Header = () => {
           <div>
             {user ? (
               <div className="flex items-center">
-                <img
-                  className="inline-block h-9 w-9 rounded-full cursor-pointer"
-                  src={
-                    user.photoURL
-                      ? user.photoURL
-                      : 'https://e7.pngegg.com/pngimages/81/570/png-clipart-profile-logo-computer-icons-user-user-blue-heroes-thumbnail.png'
-                  }
-                  alt={user.displayName}
-                  title={
-                    user.displayName
-                      ? user.displayName
-                      : 'User Name Not Be Available'
-                  }
-                />
+                <Link to={`/profile`}>
+                  {' '}
+                  <img
+                    className="inline-block h-9 w-9 rounded-full cursor-pointer hover:bg-gray-800 animate-pulse hover:p-1"
+                    src={
+                      user.photoURL
+                        ? user.photoURL
+                        : 'https://e7.pngegg.com/pngimages/81/570/png-clipart-profile-logo-computer-icons-user-user-blue-heroes-thumbnail.png'
+                    }
+                    alt={user.displayName}
+                    title={
+                      user.displayName
+                        ? user.displayName
+                        : 'User Name Not Be Available'
+                    }
+                  />
+                </Link>
                 <button
                   onClick={handleLogOut}
                   className="ml-4 hover:bg-red-400 text-red-400 font-semibold py-2 px-4 border border-red-400 rounded shadow hover:text-white"
